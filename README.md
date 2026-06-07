@@ -26,11 +26,6 @@ npm run dev
 ```
 Frontend runs on: http://localhost:5173
 
-## Login Credentials
-| Email | Password | Role |
-|---|---|---|
-| admin@timberstruct.com | admin123 | admin |
-| sarah@timberstruct.com | pass123 | engineer |
 
 ## API Endpoints
 | Method | Route | Auth | Description |
