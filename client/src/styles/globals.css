@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: 'Barlow', sans-serif;
+  background-color: #F4F4F2;
+  color: #666666;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #F4F4F2; }
+::-webkit-scrollbar-thumb { background: #C8861A; border-radius: 3px; }
+:focus-visible { outline: 2px solid #C8861A; outline-offset: 2px; }
+
+@layer components {
+  .btn-amber {
+    @apply inline-flex items-center gap-2 bg-amber text-white font-barlow font-semibold
+           uppercase tracking-widest text-xs px-6 py-3 rounded
+           hover:bg-amber-dark transition-colors duration-150 cursor-pointer;
+  }
+  .btn-outline-dark {
+    @apply inline-flex items-center gap-2 border-2 border-heading text-heading font-barlow font-semibold
+           uppercase tracking-widest text-xs px-6 py-3 rounded
+           hover:bg-heading hover:text-white transition-colors duration-150 cursor-pointer;
+  }
+  .btn-outline-amber {
+    @apply inline-flex items-center gap-2 border-2 border-amber text-amber font-barlow font-semibold
+           uppercase tracking-widest text-xs px-6 py-3 rounded
+           hover:bg-amber hover:text-white transition-colors duration-150 cursor-pointer;
+  }
+  .nav-link {
+    @apply font-barlow font-medium uppercase tracking-widest text-[13px] text-white
+           hover:text-amber transition-colors duration-150 cursor-pointer;
+  }
+  .section-label {
+    @apply font-barlow font-semibold uppercase tracking-[0.15em] text-[12px] text-amber;
+  }
+  .ts-input {
+    @apply w-full font-barlow text-sm text-heading bg-white border border-border
+           rounded px-4 py-3 placeholder:text-gray-400
+           focus:outline-none focus:border-amber focus:ring-1 focus:ring-amber/30
+           transition-all duration-150;
+  }
+  .ts-select {
+    @apply w-full font-barlow text-sm text-heading bg-white border border-border
+           rounded px-4 py-3 focus:outline-none focus:border-amber focus:ring-1 focus:ring-amber/30
+           transition-all duration-150 cursor-pointer;
+  }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.5s ease forwards; }
+
+@keyframes skeletonPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+.skeleton {
+  animation: skeletonPulse 1.6s ease-in-out infinite;
+  background: #DDDBD6;
+  border-radius: 4px;
+}
+
+.hero-bg {
+  background: linear-gradient(160deg, #0E0E0E 0%, #1C1200 55%, #0E0E0E 100%);
+}
+
+.amber-divider {
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: #C8861A;
+  margin: 16px auto;
+}
+
+.amber-divider-left {
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: #C8861A;
+  margin: 16px 0;
+}
+
+/* ── App layout utilities ─────────────────────────────────── */
+@layer components {
+  .ts-select {
+    @apply w-full font-barlow text-sm text-heading bg-white border border-border
+           rounded px-4 py-3 focus:outline-none focus:border-amber focus:ring-1 focus:ring-amber/30
+           transition-all duration-150 cursor-pointer;
+  }
+}
+
+/* Table */
+.tbl { @apply w-full text-sm; }
+.tbl thead tr { @apply border-b border-border; }
+.tbl th { @apply text-left text-[10px] font-barlow font-bold uppercase tracking-widest text-gray-400 pb-3 pr-4; }
+.tbl td { @apply py-3 pr-4 border-b border-gray-50 text-body align-middle; }
+.tbl tbody tr { @apply hover:bg-gray-50/50 transition-colors; }
